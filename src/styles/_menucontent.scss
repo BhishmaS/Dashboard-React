@@ -1,0 +1,29 @@
+.menu-content {
+    padding: 24px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    
+    .col-default-3 {
+        flex: 0 0 33%;
+        max-width: 33%;
+    
+        .card {
+            background-color: #fff;
+            margin: 12px !important;
+            padding: 24px;
+    
+            .label {
+                font-size: 12pt;
+                color: #666666;
+            }
+    
+            .content {
+                font-size: 18pt;
+                color: #000000;
+            }
+        }
+    }
+}

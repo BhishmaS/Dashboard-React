@@ -1,0 +1,27 @@
+/* Top nav styles */
+.top-nav {
+    height: 70px;
+    padding: 0px 24px;
+    background-color: #373737;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .groupby-selector {
+        height: 40px;
+        width: 200px;
+        align-items: center;
+        font-size: 14px;
+        color: white;
+        border: 0px;
+        border-radius: 4px;
+        appearance: none;
+        padding: 0px 10px;
+        cursor: pointer;
+        background: url(../assets/icons/chevron.svg) 92% / 8% no-repeat #262626;
+    }
+    
+    select.groupby-selector:focus {
+        border: #0D8B7F solid 1px;
+    }
+}
