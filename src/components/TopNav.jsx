@@ -21,7 +21,14 @@ export default class TopNav extends React.Component {
         fetch(`${config.baseUrl}/${apiConstants.groupsIdentifier}`)
             .then(res => res.json())
             .then(data => {
-                this.setState({ groups: data });
+                if (data.length > 0) {
+                    this.onGroupSelected(data[0].id);
+                    this.setState({ groups: data });
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                // Need to do error Handling
             });
     }
 

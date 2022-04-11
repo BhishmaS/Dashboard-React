@@ -11,6 +11,7 @@ export default class MenuBar extends React.Component {
         this.state = {
             menuItems: [],
             menuContent: {},
+            currentTab: '',
         };
     }
 
@@ -36,24 +37,31 @@ export default class MenuBar extends React.Component {
                             content: res.data[itemName]
                         };
                     });
-    
-                    this.setState({ menuItems: menuItems });
+                    
+                    if (menuItems.length > 0) {
+                        this.updateMenuContent(menuItems[0]);
+                        this.setState({ menuItems: menuItems });
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    // Need to do error Handling
                 });
         }
     }
 
     buildMenuItems() {
         return this.state.menuItems.map(menuItem => {
-            return <li className="menubar-list-item" //${this.props.show === tabId ? 'active' : ''}
+            return <li className={`menubar-list-item ${this.state.currentTab === menuItem.id ? 'active' : ''}`}
                         key={menuItem.id}
-                        onClick={() => this.updateMenuContent(menuItem.content)}>
+                        onClick={() => this.updateMenuContent(menuItem)}>
                 <a className="menu-link">{menuItem.name}</a>
             </li>;
         });
     }
 
-    updateMenuContent(content) {
-        this.setState({ menuContent: content });
+    updateMenuContent(menuItem) {
+        this.setState({ menuContent: menuItem.content, currentTab: menuItem.id });
     }
 
     render() {
