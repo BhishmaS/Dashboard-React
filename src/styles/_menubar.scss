@@ -8,6 +8,7 @@
         list-style-type: none;
         margin: 0px;
         padding-left: 0px;
+        height: 40px;
         
         .menubar-list-item {
             padding: 9px 0px;
@@ -16,6 +17,10 @@
             cursor: pointer;
             text-align: center;
             display: flex;
+            
+            .menu-link {
+                width: 200px;
+            }
             
             &.active {
                 border: 1px solid #E7E7E7;
@@ -31,11 +36,7 @@
 
             &:last-child::after {
                 content: "";
-                border-right: 1px solid #e7e7e7;
-            }
-            
-            .menu-link {
-                width: 200px;
+                border-right: 1px solid #E7E7E7;
             }
         }
     }

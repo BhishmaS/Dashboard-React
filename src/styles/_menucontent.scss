@@ -7,23 +7,32 @@
     flex-wrap: wrap;
     
     .col-default-3 {
-        flex: 0 0 33%;
-        max-width: 33%;
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+        padding-bottom: 24px;
     
         .card {
             background-color: #fff;
-            margin: 12px !important;
-            padding: 24px;
-    
-            .label {
-                font-size: 12pt;
-                color: #666666;
+            margin-right: 24px;
+            height: 100%;
+
+            .card-body {
+                padding: 24px;
+        
+                .label {
+                    font-size: 12pt;
+                    color: #666666;
+                }
+        
+                .content {
+                    font-size: 18pt;
+                    color: #000000;
+                }
             }
-    
-            .content {
-                font-size: 18pt;
-                color: #000000;
-            }
+        }
+        
+        &:nth-child(3n) .card {
+            margin-right: 0px !important;
         }
     }
 }

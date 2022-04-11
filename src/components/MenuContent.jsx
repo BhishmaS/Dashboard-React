@@ -23,40 +23,28 @@ export default class MenuContent extends React.Component {
         if (content) {
             let menuContent = [];
             Object.keys(content).forEach(key => {
-                let htmlContent = <></>;
+                let subContent = <></>;
                 if (key === 'budget') {
-                    htmlContent = <div className="col-default-3" key={key}>
-                        <div className="card">
-                            <label className="label">{content[key].label}</label>
-                            <p className="content">
-                                <b>{content[key].data.value}</b> minimum recommended buget to reduce pay equity gap
-                            </p>
-                        </div>
-                    </div>;
+                    subContent = <p className="content"><b>{content[key].data.value}</b> minimum recommended buget to reduce pay equity gap</p>;
                 }
     
                 if (key === 'employeeComparison') {
-                    const data = content[key].data;
-                    htmlContent = <div className="col-default-3" key={key}>
-                        <div className="card">
-                            <label className="label">{content[key].label}</label>
-                            <p className="content">{data.label} make up <b>{data.value}</b> of employees</p>
-                        </div>
-                    </div>;
+                    subContent = <p className="content">{content[key].data.label} make up <b>{content[key].data.value}</b> of employees</p>;
                 }
     
                 if (key === 'payEquityGap') {
                     const data = content[key].data;
-                    htmlContent = <div className="col-default-3" key={key}>
-                        <div className="card">
-                            <label className="label">{content[key].label}</label>
-                            <p className="content">
-                                {data.minority.label} earn <b>{data.minority.value}</b> for every <b>{data.majority.value}</b> earned by comparable {data.majority.label}
-                            </p>
-                        </div>
-                    </div>;
+                    subContent = <p className="content">{data.minority.label} earn <b>{data.minority.value}</b> for every <b>{data.majority.value}</b> earned by comparable {data.majority.label}</p>;
                 }
     
+                const htmlContent = <div className="col-default-3" key={key}>
+                    <div className="card">
+                        <div className="card-body">
+                            <label className="label">{content[key].label}</label>
+                            {subContent}
+                        </div>
+                    </div>
+                </div>;
                 menuContent.push(htmlContent);
             });
 
